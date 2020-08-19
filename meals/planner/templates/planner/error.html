@@ -1,0 +1,65 @@
+{% load static %}
+<head>
+    <title>{% block title %}Meals Planner{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">        <!-- source: bit.ly/2XI93uQ  -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'planner/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light orange">
+        <a class="navbar-brand" href="{% url 'index' %}">Meals Planner</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#test" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+    </nav>
+<div class="container">
+    <div class="alert alert-danger" role="alert">Uh-oh! We ran into an error. Try adding more items to your pantry or re-generating a report. In the meantime, enjoy this recipe!</div>
+</div>
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10 col-sm-12">
+        <div class="card test">
+            <img class="card-img-top" src="https://i.ya-webdesign.com/images/drawing-vegetables-winter-vegetable-1.png" alt="default image">
+                <div class="col-12">
+                    <div class="card-body">
+                        <h2 class="card-title">Baked Cauliflower with Chickpeas</h2>
+                        <h6 class="card-subtitle mb-2 text-muted"><a href="https://chloe.substack.com/p/baked-cauliflower-and-chickpeas" class="source">Source</a></h6>
+                        <div class="row justify-content-between">
+                        <div class="col-md-5 col-sm-6 ingredients">
+                            <ul class="list-group">
+                                <li class="list-group-item">1/4 cup olive oil</li>
+                                <li class="list-group-item">5 big cloves of garlic, smashed with the flat of a knife
+                                </li>
+                                <li class="list-group-item">1/4 - 1/2 teaspoon chili flakes</li>
+                                <li class="list-group-item">1 can tomato paste (6 ounces)
+                                </li>
+                                <li class="list-group-item">1 tablespoon harissa
+                                </li>
+                                <li class="list-group-item">1 bag cauliflower rice (12 ounces)
+                                </li>
+                                <li class="list-group-item">3 cups cooked chickpeas
+                                </li>
+                                <li class="list-group-item">8 ounces feta, crumbled
+                                </li>
+                                <li class="list-group-item">1/2 cup sun dried tomatoes, julienned</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-7 col-sm-6 steps">
+                            <h5>Step 1</h5>
+                            <p>Heat oven to 375 F.</p>
+                            <h5>Step 2</h5><p>Add the olive oil to a large oven-safe skillet, heat over medium flame. When the oil is hot, add in the garlic cloves and chili flakes.</p>
+                            <h5>Step 3</h5><p>Once you’ve cooked the garlic till it’s light golden brown on both sides, add in the tomato paste. Cook until it’s brick red, adding in the harissa a few minutes before you’re there.</p>
+                            <h5>Step 4</h5><p>Add in the cauliflower rice and some water — maybe 1 cup. You want it to be saucy but not too loose.</p>
+                            <h5>Step 5</h5><p>Add in the chickpeas and adjust water as necessary — again, you’re going for saucy, and remember that some of the water will evaporate when you bake it.</p>
+                            <h5>Step 6</h5><p>Stir in the sun dried tomatoes and crumbled feta and pop the whole thing in the oven. Bake for 20-30 minutes — I’m not sure it matters how long you bake it for? You just want time for the chickpeas to get a little more tender and everything to heat up. That’s it! If you have a pan and a stocked pantry, you can make it for dinner tonight.</p>
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+</body>

@@ -1,0 +1,105 @@
+{% extends "planner/layout.html" %}
+{% load static %}
+{% block script %}
+    <script src="{% static 'planner/planner.js' %}"></script>
+{% endblock %}
+{% block body %}
+{% csrf_token %}
+<div class="container">
+    <div class="alert alert-danger" id="alert" role="alert" style="display:none"><strong>We could only find XX recipes.</strong></div>
+    <div id="recipes-view">
+        <div class="row">
+            {% for recipe in recipes %}
+            <div class="col-lg-4 col-md-6 col-sm-12">
+                <div class="card test">
+                    <img class="card-img-top img-fluid" src="{{ recipe.img }}" data-id={{ recipe.id}} alt="default image">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ recipe.title }}</h5>
+                        <p class="card-text"><strong>Potentially missing: </strong>{{ recipe.missing }}</p>
+                        <i class="fa fa-times fa-3x cross"></i>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="recipe-view" style="display:none">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="card test">
+                    <img class="card-img-top" src="https://www.moma.org/media/W1siZiIsIjM5MTE4OCJdLFsicCIsImNvbnZlcnQiLCItcXVhbGl0eSA5MCAtcmVzaXplIDIwMDB4MjAwMFx1MDAzZSJdXQ.jpg?sha=6d102ab5909153d5" alt="default image">
+                        <div class="col-12">
+                            <div class="card-body">
+                                <h2 class="card-title">Card title</h2>
+                                <h6 class="card-subtitle mb-2 text-muted"><a href="#" class="source">Source</a></h6>
+                                <div class="row justify-content-between">
+                                <div class="col-md-5 col-sm-6 ingredients">
+                                    <ul class="list-group">
+                                    </ul>
+                                </div>
+                                <div class="col-md-7 col-sm-6 steps">
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div id="ingredients-view" style="display:none">
+        <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Item</th>
+                <th scope="col">Quantity (grams)</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody>
+                {% for ingredient in ingredients %}
+                    <tr>
+                    <!-- Source = "https://stackoverflow.com/questions/11481499/django-iterate-number-in-for-loop-of-a-template" -->
+                    <th scope="row">{{ forloop.counter }}</th>
+                    <td>{{ ingredient.item }}</td>
+                    <td class="quantity" data-id={{ ingredient.id }}>{{ ingredient.amount }}</td>
+                    <td><button type="button" class="btn btn btn-outline-primary btn-sm edit">Edit</button></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        {% if user.is_authenticated %}
+        <div id="add-view" style="display:none">
+            <h3>Instructions</h3>
+            <ol>
+                <li>Click "ADD" or press enter to add items to your pantry inventory.</li>
+                <li>When you click "SAVE ALL," your items will be sent to Nutrionix's API for processing.</li>
+                <li>Because Nutrionix limits daily API calls, Please only click "SAVE ALL" after you have added all your items.</li>
+            </ol>
+            <button type="button" id="add" class="btn btn-primary btn-lg">ADD</button>
+            <button type="button" id="save-all" class="btn btn-success btn-lg">SAVE ALL</button>    
+            <div class="form-group" id="add-form">
+                <input autofocus class="form-control" type="text" id="input-ingredient" name="ingredient" placeholder="One per line (e.g. 5 garlic heads)"></input>
+            </div>
+            <div id="added-items">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-sm-12">
+                <div id="generate-view" style="display:none">
+                        <h3>Instructions</h3>
+                        <p>Click your desired number of days and generate a report. Note that you can only view your most recent report.</p>
+                        <div class="col-12">
+                        {% for x in num_days %}
+                        <form action="{% url 'generate_report' x %}" method="GET">
+                        <input class="btn btn-primary" type="submit" value="{{x}}"></button>
+                        </form>
+                        {% endfor %}
+                        </div>
+                    </div>
+            </div>
+        </div>
+        {% endif %}
+</div>
+{% endblock %}

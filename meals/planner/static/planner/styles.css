@@ -1,0 +1,103 @@
+/* source: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_loader */
+.loader {
+  border: 8px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 8px solid #365089;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 0 auto;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 1s linear infinite;
+}
+.test{
+    animation: disappear .5s ease;
+    animation-play-state: paused;
+    animation-fill-mode: forwards;
+    align-items: center;
+}
+.card{
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.img{
+    height: 50%;
+    width:50%;
+}
+  
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes disappear {
+  0% { opacity: 1 }
+  100% { opacity:.45 }
+}
+.fa-times{
+    color:#a56968;
+    text-align:center;
+    display:block;
+    margin-bottom:2%;
+}
+.fa-times:hover{
+    color:#8f3a35;
+    cursor:pointer;
+    transform:scale(1.2);
+}
+.card-img-top:hover{
+  cursor:pointer;
+}
+.orange{
+  background-color: #c27434;
+}
+.btn{
+  margin-top: 2%;
+}
+#add-form{
+  margin-top:2%;
+}
+input{
+  width:50%;
+}
+.thin{
+  line-height: 5px;
+}
+.narrow{
+  max-width:125px;
+}
+.card-text{
+  height:75px;
+  overflow:hidden;
+}
+
+img{
+  min-height:350px;
+  /* source: https://stackoverflow.com/questions/45379727/make-images-the-same-size-in-bootstrap-grid */
+  object-fit:cover;
+  max-height:475px;
+}
+#alert{
+  margin-top: 2%;
+}
+
+.steps{
+  text-align:left;
+}
+.ingredients{
+  text-align:center
+}
+.card-title, .card-body{
+  text-align:center
+}
+
+.list-group-item{
+  padding: .5rem .75rem;
+  font-size:14px;
+}
