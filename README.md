@@ -2,7 +2,7 @@
 # Meal_planner
 This site automatically generates meal schedules based on a user's pantry. After inputting their  items, users can query for a recipe plan. The site converts the user's pantry entries into standardized names and weights with Nutrionix's API. It then crawls allrecipes.com to find potentially apt recipes. Finally, it runs an algorithm to solve a constraint satisfaction problem, maximizing the number of recipes it can return based on the quantity of ingredients each recipe uses.
 
-Although there is no theoretical limit to the length (in days) of a report the project can generate, allrecipes.com appears to slow down users who make repeated, numerous requests. Thus, the site caps the number of days at 7, but allows users to swap recipes in and out and generate new reports. 
+Although there is no theoretical limit to the length of a report the project can generate, allrecipes.com appears to slow down users who make repeated requests. Thus, the site caps the number of days at 7, but allows users to swap recipes in and out and generate new reports. 
 ## What's Contained
 Beyond standard Django development files, the project uses three main files:
 1. **util.py**
